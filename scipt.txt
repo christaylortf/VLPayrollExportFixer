@@ -1,3 +1,10 @@
 Sub VerdantPayrollAmendScript()
     Columns("A:A").Select	
+    Selection.TextToColumns Destination:=Range("A1"), DataType:=xlDelimited, _
+        TextQualifier:=xlDoubleQuote, ConsecutiveDelimiter:=False, Tab:=False, _
+        Semicolon:=False, Comma:=False, Space:=False, Other:=True, OtherChar _
+        :=";", FieldInfo:=Array(Array(1, 1), Array(2, 1), Array(3, 1), Array(4, 1)), _
+        TrailingMinusNumbers:=True
+    Range("I12").Select
+    
 End Sub
