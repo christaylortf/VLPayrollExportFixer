@@ -22,4 +22,9 @@ Sub VerdantPayrollAmendScript()
         SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
         ReplaceFormat:=False, FormulaVersion:=xlReplaceFormula2
     
+    Columns("A:A").EntireColumn.AutoFit
+    Columns("B:B").EntireColumn.AutoFit
+    Columns("C:C").EntireColumn.AutoFit
+    Columns("D:D").EntireColumn.AutoFit
+    
 End Sub
