@@ -7,4 +7,19 @@ Sub VerdantPayrollAmendScript()
         TrailingMinusNumbers:=True
     Range("I12").Select
     
+    Columns("A:A").Select
+    Selection.Replace What:="GCSV-", Replacement:="", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False, FormulaVersion:=xlReplaceFormula2
+		
+	Columns("A:A").Select
+    Selection.Replace What:="VL-", Replacement:="", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False, FormulaVersion:=xlReplaceFormula2
+		
+	Columns("A:A").Select
+    Selection.Replace What:="VL2-", Replacement:="", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False, FormulaVersion:=xlReplaceFormula2
+    
 End Sub
