@@ -11,22 +11,22 @@ Sub VerdantPayrollAmendScript()
     Selection.Replace What:="GCSV-", Replacement:="", LookAt:=xlPart, _
         SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
         ReplaceFormat:=False, FormulaVersion:=xlReplaceFormula2
-		
+        
     Columns("A:A").Select
     Selection.Replace What:="VL-", Replacement:="", LookAt:=xlPart, _
         SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
         ReplaceFormat:=False, FormulaVersion:=xlReplaceFormula2
-		
+        
     Columns("A:A").Select
     Selection.Replace What:="VL2-", Replacement:="", LookAt:=xlPart, _
         SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
         ReplaceFormat:=False, FormulaVersion:=xlReplaceFormula2
-		
+        
     Columns("A:A").EntireColumn.AutoFit
     Columns("B:B").EntireColumn.AutoFit
     Columns("C:C").EntireColumn.AutoFit
     Columns("D:D").EntireColumn.AutoFit
-	
+    
     Columns("C:C").Select
     Selection.SpecialCells(xlCellTypeBlanks).Select
     Selection.Replace What:="", Replacement:="182", LookAt:=xlPart, _
@@ -39,6 +39,21 @@ Sub VerdantPayrollAmendScript()
         .TintAndShade = 0
         .PatternTintAndShade = 0
     End With
-	Range("F1").Select
-	
+    
+    Columns("A:A").Select
+    Selection.FormatConditions.AddUniqueValues
+    Selection.FormatConditions(Selection.FormatConditions.Count).SetFirstPriority
+    Selection.FormatConditions(1).DupeUnique = xlDuplicate
+    With Selection.FormatConditions(1).Font
+        .Color = -16383844
+        .TintAndShade = 0
+    End With
+    With Selection.FormatConditions(1).Interior
+        .PatternColorIndex = xlAutomatic
+        .Color = 13551615
+        .TintAndShade = 0
+    End With
+    Selection.FormatConditions(1).StopIfTrue = False
+    
+    
 End Sub
