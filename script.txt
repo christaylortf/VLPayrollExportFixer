@@ -27,4 +27,14 @@ Sub VerdantPayrollAmendScript()
     Columns("C:C").EntireColumn.AutoFit
     Columns("D:D").EntireColumn.AutoFit
     
+    Columns("A:D").Select
+    Selection.SpecialCells(xlCellTypeBlanks).Select
+    With Selection.Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .Color = 65535
+        .TintAndShade = 0
+        .PatternTintAndShade = 0
+    End With
+    
 End Sub
