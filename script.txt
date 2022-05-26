@@ -39,6 +39,6 @@ Sub VerdantPayrollAmendScript()
         .TintAndShade = 0
         .PatternTintAndShade = 0
     End With
-	Ranage("F1").Select
+	Range("F1").Select
 	
 End Sub
