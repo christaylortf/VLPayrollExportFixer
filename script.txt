@@ -1,34 +1,37 @@
 Sub VerdantPayrollAmendScript()
-    Columns("A:A").Select	
+    Columns("A:A").Select
     Selection.TextToColumns Destination:=Range("A1"), DataType:=xlDelimited, _
         TextQualifier:=xlDoubleQuote, ConsecutiveDelimiter:=False, Tab:=False, _
         Semicolon:=False, Comma:=False, Space:=False, Other:=True, OtherChar _
         :=";", FieldInfo:=Array(Array(1, 1), Array(2, 1), Array(3, 1), Array(4, 1)), _
         TrailingMinusNumbers:=True
     Range("I12").Select
-    
+
     Columns("A:A").Select
     Selection.Replace What:="GCSV-", Replacement:="", LookAt:=xlPart, _
         SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
         ReplaceFormat:=False, FormulaVersion:=xlReplaceFormula2
 		
-	Columns("A:A").Select
+    Columns("A:A").Select
     Selection.Replace What:="VL-", Replacement:="", LookAt:=xlPart, _
         SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
         ReplaceFormat:=False, FormulaVersion:=xlReplaceFormula2
 		
-	Columns("A:A").Select
+    Columns("A:A").Select
     Selection.Replace What:="VL2-", Replacement:="", LookAt:=xlPart, _
         SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
         ReplaceFormat:=False, FormulaVersion:=xlReplaceFormula2
-    
+		
     Columns("A:A").EntireColumn.AutoFit
     Columns("B:B").EntireColumn.AutoFit
     Columns("C:C").EntireColumn.AutoFit
     Columns("D:D").EntireColumn.AutoFit
-    
-    Columns("A:D").Select
+	
+    Columns("C:C").Select
     Selection.SpecialCells(xlCellTypeBlanks).Select
+    Selection.Replace What:="", Replacement:="182", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False, FormulaVersion:=xlReplaceFormula2
     With Selection.Interior
         .Pattern = xlSolid
         .PatternColorIndex = xlAutomatic
@@ -36,5 +39,6 @@ Sub VerdantPayrollAmendScript()
         .TintAndShade = 0
         .PatternTintAndShade = 0
     End With
-    
+	Ranage("F1").Select
+	
 End Sub
